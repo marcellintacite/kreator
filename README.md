@@ -15,7 +15,7 @@ The project is organized as follows:
 - **`sidepanel/`**: This directory contains the files for the side panel interface.
   - **`index.html`**: The main HTML file for the side panel.
   - **`index.css`**: The stylesheet for the side panel.
-  - **`index.js`**: The JavaScript file that handles the logic for the side panel, including communication with the Gemini API.
+  - **`index.js`**: The JavaScript file that handles the logic for the side panel, including communication with the Firebase AI Logic.
   - **`firebase.js`**: This file contains the Firebase configuration and initialization code.
 - **`images/`**: This directory contains the icons for the extension.
 - **`welcome.html`**: A welcome page for new users.
@@ -29,7 +29,7 @@ To run this extension locally, follow these steps:
 
 1. **Clone the repository:**
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/marcellintacite/kreator.git
    ```
 2. **Install the dependencies:**
    ```sh
