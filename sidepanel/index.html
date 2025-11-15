@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../images/icon128.png" alt="Kreator Logo" class="logo" />
+      <h1>Kreator AI Sidepanel</h1>
+    </header>
+    <textarea
+      id="input-prompt"
+      placeholder='Type something, e.g. "Write a haiku about Chrome Extensions"'
+      cols="30"
+      rows="5"
+    ></textarea>
+    <button id="button-prompt" class="primary" disabled>Execute</button>
+    <div id="response" class="text" hidden></div>
+    <div id="loading" class="loading-container" hidden>
+      <div class="loading-agent">
+        <img src="../images/icon48.png" alt="Kreator Agent" class="agent-logo" />
+        <div class="typing-indicator">
+          <div class="typing-line"></div>
+          <div class="typing-line"></div>
+          <div class="typing-line"></div>
+          <div class="typing-line"></div>
+        </div>
+      </div>
+    </div>
+    <div id="error" class="text" hidden></div>
+    <script src="../dist/sidepanel.bundle.js"></script>
+  </body>
+</html>

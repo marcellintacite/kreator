@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenue à Kreator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f6f4 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        max-width: 500px;
+        width: 100%;
+        padding: 48px 32px;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(255, 122, 45, 0.2);
+      }
+
+      .title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1f1f1f;
+        letter-spacing: -0.5px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+      }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .feature {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .feature-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff7a2d 0%, #e86920 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .feature-text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .feature-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #1f1f1f;
+      }
+
+      .feature-desc {
+        font-size: 12px;
+        color: #888;
+      }
+
+      .divider {
+        height: 1px;
+        background: #e7e2de;
+        margin: 32px 0;
+      }
+
+      .api-section {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .section-title {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #999;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .form-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .input-group {
+        display: flex;
+        gap: 8px;
+      }
+
+      input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 1px solid #e7e2de;
+        border-radius: 8px;
+        font-size: 14px;
+        font-family: 'Monaco', 'Courier New', monospace;
+        outline: none;
+        transition: all 0.2s ease;
+      }
+
+      input:focus {
+        border-color: #ff7a2d;
+        box-shadow: 0 0 0 3px rgba(255, 122, 45, 0.1);
+      }
+
+      input::placeholder {
+        color: #ccc;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 8px;
+      }
+
+      button {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        letter-spacing: 0.3px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #ff7a2d 0%, #e86920 100%);
+        color: white;
+        box-shadow: 0 4px 12px rgba(255, 122, 45, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 122, 45, 0.4);
+      }
+
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+
+      .btn-secondary {
+        background: #f5f5f5;
+        color: #666;
+        border: 1px solid #e7e2de;
+      }
+
+      .btn-secondary:hover {
+        background: #efefef;
+        color: #333;
+      }
+
+      #status {
+        margin-top: 16px;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        text-align: center;
+        display: none;
+      }
+
+      #status.show {
+        display: block;
+      }
+
+      #status.success {
+        background: #e8f5e9;
+        color: #2e7d32;
+        border: 1px solid #c8e6c9;
+      }
+
+      #status.error {
+        background: #ffebee;
+        color: #c62828;
+        border: 1px solid #ffcdd2;
+      }
+
+      .info-box {
+        background: #fff8f3;
+        border: 1px solid #ffe0cc;
+        border-radius: 8px;
+        padding: 12px;
+        margin-top: 16px;
+        font-size: 12px;
+        color: #666;
+        line-height: 1.5;
+      }
+
+      .info-box strong {
+        color: #ff7a2d;
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 32px 20px;
+        }
+
+        .title {
+          font-size: 28px;
+        }
+
+        .features {
+          gap: 12px;
+        }
+
+        .input-group,
+        .button-group {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <img src="images/icon128.png" alt="Kreator" class="logo" />
+        <div>
+          <div class="title">Kreator</div>
+          <div class="subtitle">Assistant IA pour vos commentaires</div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <div class="feature-title">Répondre aux commentaires</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <div class="feature-title">Résumer rapidement</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <div class="feature-title">Expliquer simplement</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-text">
+            <div class="feature-title">Fonctionne hors ligne</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Firebase Config Section -->
+      <div class="api-section">
+        <div class="section-title">� Configuration Firebase</div>
+
+        <div class="form-group">
+          <label for="apiKeyInput" class="form-label">Clé API</label>
+          <input 
+            id="apiKeyInput" 
+            type="password" 
+            placeholder="sk-..."
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="projectIdInput" class="form-label">Project ID</label>
+          <input 
+            id="projectIdInput" 
+            type="text" 
+            placeholder="mon-projet-123"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="authDomainInput" class="form-label">Auth Domain</label>
+          <input 
+            id="authDomainInput" 
+            type="text" 
+            placeholder="mon-projet.firebaseapp.com"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="storageBucketInput" class="form-label">Storage Bucket</label>
+          <input 
+            id="storageBucketInput" 
+            type="text" 
+            placeholder="mon-projet.appspot.com"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="button-group">
+          <button id="saveBtn" class="btn-primary">Enregistrer</button>
+          <button id="skipBtn" class="btn-secondary">Passer</button>
+        </div>
+
+        <div id="status"></div>
+
+        <div class="info-box">
+          <strong>Besoin d'aide ?</strong><br />
+          Allez à <a href="https://console.firebase.google.com" target="_blank" style="color: #ff7a2d; text-decoration: none;">Firebase Console</a> et copiez vos identifiants.
+        </div>
+      </div>
+    </div>
+
+    <script src="welcome.js"></script>
+  </body>
+</html>

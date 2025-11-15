@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "name": "kreator",
+  "version": "1.0",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "private": true,
+  "devDependencies": {
+    "@google/generative-ai": "0.15.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "rollup": "4.22.4"
+  },
+  "dependencies": {
+    "firebase": "^12.5.0",
+    "marked": "^16.4.1"
+  }
+}
